@@ -12,7 +12,7 @@ let model;
 app.use(cors()); 
 
 async function loadModel() {
-  model = await tf.loadLayersModel('./model.json');
+  model = await tf.loadLayersModel('file://model.json');
   console.log('Model loaded successfully.');
 }
 
