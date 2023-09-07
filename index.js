@@ -22,13 +22,13 @@ loadModel().catch(error => {
 
 app.use(bodyParser.json());
 
-app.post('/predict', (req, res) => {
+app.get('/predict', (req, res) => {
     if (!model) {
       return res.status(500).json({ error: 'Model not loaded yet' });
     }
-  
+    
     try {
-    const inputData = {"Temperature":27,"Humidity":47,"Moisture":26,"Soil_Type":'Sandy',"Crop_Type":'Maize',"Nitrogen":37,"Potassium":0,"Phosphorous":0};
+    const inputData = {"Temperature":req.query.temperature,"Humidity":req.query.humidity,"Moisture":req.query.moisture,"Soil_Type":req.query.soil,"Crop_Type":req.query.crop,"Nitrogen":req.query.N,"Potassium":req.query.P,"Phosphorous":req.query.K};
   
      
     const numSoilTypes = getNumSoilTypes(); 
