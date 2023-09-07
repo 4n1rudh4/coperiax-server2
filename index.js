@@ -26,7 +26,7 @@ app.get('/predict', (req, res) => {
     if (!model) {
       return res.status(500).json({ error: 'Model not loaded yet' });
     }
-    const inputData = {"Temperature":req.query.temperature,"Humidity":req.query.humidity,"Moisture":req.query.moisture,"Soil_Type":req.query.soil,"Crop_Type":req.query.crop,"Nitrogen":req.query.N,"Potassium":req.query.P,"Phosphorous":req.query.K};
+    const inputData = {"Temperature":Number(req.query.temperature),"Humidity":Number(req.query.humidity),"Moisture":Number(req.query.moisture),"Soil_Type":req.query.soil,"Crop_Type":req.query.crop,"Nitrogen":Number(req.query.N),"Potassium":Number(req.query.P),"Phosphorous":Number(req.query.K)};
     console.log(inputData)
     try {
     
